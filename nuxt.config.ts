@@ -3,7 +3,7 @@
  * @Author: wangshuhao.com
  * @Date: 2020/03/22 16:57:15
  * @LastEditors: wangshuhao.com
- * @LastEditTime: 2020/03/23 22:30:00
+ * @LastEditTime: 2020/03/23 22:39:08
  * @Documentation: https://nuxtjs.org/guide
  */
 
@@ -106,8 +106,8 @@ const config: Configuration = {
    */
   proxy: {
     '/api/': {
-      target: process.env.AXIOS_PROXY_URL || '',
-      pathRewrite: { '^/api/': '/' }
+      pathRewrite: { '^/api/': '/' },
+      target: process.env.AXIOS_PROXY_URL || 'https://www.example.org/'
     }
   },
   /**
