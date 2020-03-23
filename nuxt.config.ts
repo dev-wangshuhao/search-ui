@@ -3,13 +3,14 @@
  * @Author: wangshuhao.com
  * @Date: 2020/03/22 16:57:15
  * @LastEditors: wangshuhao.com
- * @LastEditTime: 2020/03/23 00:46:58
+ * @LastEditTime: 2020/03/23 22:39:08
  * @Documentation: https://nuxtjs.org/guide
  */
 
 import { Configuration } from '@nuxt/types'
 
-require('dotenv').config()
+const dotenv = require('dotenv').config()
+if (dotenv.error) throw new Error('未找到 .env 文件')
 
 const config: Configuration = {
   /**
@@ -105,8 +106,8 @@ const config: Configuration = {
    */
   proxy: {
     '/api/': {
-      target: process.env.AXIOS_PROXY_URL || '',
-      pathRewrite: { '^/api/': '/' }
+      pathRewrite: { '^/api/': '/' },
+      target: process.env.AXIOS_PROXY_URL || 'https://www.example.org/'
     }
   },
   /**
